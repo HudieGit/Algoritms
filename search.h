@@ -72,7 +72,9 @@ std::vector<int> rabinKarp(const std::string& X, const std::string& Y, SearchSta
 // ---------------------------------------------------------------------
 template <bool Count = false>
 std::vector<int> prefixFunction(const std::string& Y, SearchStats* st = nullptr) {
+    //получили размер Y - n
     const int n = (int)Y.size();
+    //создали вектор длины n заполненый нулями
     std::vector<int> pi(n, 0);
     for (int i = 1; i < n; ++i) {
         int q = pi[i - 1];
@@ -88,9 +90,10 @@ std::vector<int> prefixFunction(const std::string& Y, SearchStats* st = nullptr)
 }
 
 template <bool Count = false>
-std::vector<int> kmp(const std::string& X, const std::string& Y,
-                     SearchStats* st = nullptr) {
+std::vector<int> kmp(const std::string& X, const std::string& Y, SearchStats* st = nullptr) {
+    //получили размерности X, Y
     const int m = (int)X.size(), n = (int)Y.size();
+    //вектор результатов вхождений
     std::vector<int> res;
     if (n == 0 || n > m) return res;
 
